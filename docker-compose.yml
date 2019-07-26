@@ -20,8 +20,8 @@ services:
       - PORT=3306
       - HOST=192.168.43.201
       - SHEMAE=sakila
-    links: 
-      - mysql
     tty: true
+    depends_on: 
+      - mysql
     ports: 
       - "18080:18080"

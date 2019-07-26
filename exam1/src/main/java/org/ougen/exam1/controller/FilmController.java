@@ -47,4 +47,9 @@ public class FilmController {
         logger.info("查询成功{}",filmList);
         return ModelUtil.getModel("success",1,filmList);
     }
+
+//    @GetMapping("/byOwnResolver")
+//    public Model getByHandlerMethodArgumentResolver(@RequestParam("pageSize ")String pageSize,@RequestParam("page ")String page){
+//
+//    }
 }
