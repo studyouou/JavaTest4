@@ -44,7 +44,7 @@ public class FilmController {
         ipPage.setPageSize(pageSize);
         PageHelper.startPage(ipPage);
         List<Film> filmList = filmService.getFilmByPageHelper();
-        logger.info("查询成功{}");
+        logger.info("查询成功{}",filmList);
         return ModelUtil.getModel("success",1,filmList);
     }
 }

@@ -13,7 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>javatest4</name>
     <description>JavaTest4</description>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>exam1</module>
+    </modules>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
