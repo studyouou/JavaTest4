@@ -13,4 +13,10 @@ public interface CustomerService {
     public boolean isAuthUser(String firstName,String lastName);
 
     void addCustomer(Customer customer);
+
+    Customer getCustomerById(int customerId);
+
+    void deleteCustomerById(int customerId);
+
+    Customer updateCustomerById(int customerId,Customer customer);
 }

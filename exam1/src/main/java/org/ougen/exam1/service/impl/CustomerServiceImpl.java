@@ -36,5 +36,40 @@ public class CustomerServiceImpl implements CustomerService {
         customerMapper.addCustomer(customer);
     }
 
+    @Override
+    public Customer getCustomerById(int customerId) {
+        return customerMapper.getCustomerById(customerId);
+    }
+
+    @Override
+    public void deleteCustomerById(int customerId) {
+        customerMapper.deleteCustomer(customerId);
+    }
+
+    @Override
+    public Customer updateCustomerById(int customerId,Customer customer) {
+        Customer originOustomer = customerMapper.getCustomerById(customerId);
+        if (customer.getAddressId()!=0){
+            originOustomer.setAddressId(customer.getAddressId());
+        }
+        if (customer.getEmail()!=null){
+            originOustomer.setEmail(customer.getEmail());
+        }
+        if (customer.getFirstName()!=null){
+            originOustomer.setFirstName(customer.getFirstName());
+        }
+        if (customer.getLastName()!=null){
+            originOustomer.setLastName(customer.getLastName());
+        }
+        if (customer.getStoreId()!=0){
+            originOustomer.setStoreId(customer.getStoreId());
+        }
+        if (customer.getLastUpdate()!=null){
+            originOustomer.setLastUpdate(customer.getLastUpdate());
+        }
+        customerMapper.updateCustomer(originOustomer);
+        return originOustomer;
+    }
+
 
 }

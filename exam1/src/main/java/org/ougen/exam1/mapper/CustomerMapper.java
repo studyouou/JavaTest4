@@ -13,9 +13,11 @@ import java.util.List;
 public interface CustomerMapper {
     public List<Customer> getCustomer(@Param("firstName") String firstName);
 
+    public Customer getCustomerById(@Param("customerId") int customerId);
+
     public void addCustomer(@Param("customer") Customer customer);
 
     public void deleteCustomer(@Param("customerId")int customerId);
 
-    public void UpdateCustomer(@Param("customer")Customer customer);
+    public void updateCustomer(@Param("customer")Customer customer);
 }

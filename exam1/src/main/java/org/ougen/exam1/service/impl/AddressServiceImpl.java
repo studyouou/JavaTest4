@@ -1,5 +1,6 @@
 package org.ougen.exam1.service.impl;
 
+import org.ougen.exam1.mapper.AddressMapper;
 import org.ougen.exam1.model.Address;
 import org.ougen.exam1.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,21 @@ import java.util.List;
 @Service
 public class AddressServiceImpl implements AddressService {
     @Autowired
-    private AddressService addressService;
+    private AddressMapper addressMapper;
+
     @Override
-    public List<Address> getAddress(int addressId) {
-        return addressService.getAddress(addressId);
+    public Address getAddressByName(String address) {
+        List<Address> addresseList = addressMapper.getAddressByName(address);
+        if (addresseList.size()==0){
+            return null;
+        }
+        for (Address address1 : addresseList){
+            if (address1.getAddress()!=null&&!"".equals(address1.getAddress())){
+                return address1;
+            }
+        }
+        Address address2 = addresseList.get(0);
+        address2.setAddress(address2.getAddress2());
+        return address2;
     }
 }

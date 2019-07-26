@@ -9,5 +9,9 @@
        ${sort}
        limit #{offset},#{limit}
    </select>
-
+    <select id="getFilmByPageHelper" resultType="film">
+        select *
+        from
+        film
+    </select>
 </mapper>

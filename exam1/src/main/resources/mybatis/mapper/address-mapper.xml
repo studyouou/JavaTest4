@@ -2,11 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.ougen.exam1.mapper.AddressMapper">
-    <select id="getAddressById" resultType="address" parameterType="int">
-       select a.address_id,a.address,a.address2
+    <select id="getAddressByName" resultType="org.ougen.exam1.model.Address">
+       select a.address_id as addressId,a.address as address,a.address2 as address2
        from address a
        where
-       address_id=#{addressId}
+       address=#{address}
+       or
+       address2=#{address}
    </select>
 
 </mapper>

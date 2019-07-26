@@ -10,5 +10,5 @@ import java.util.List;
  * Date: 11:37 2019/7/26
  */
 public interface AddressService {
-    public List<Address> getAddress(int addressId);
+    public Address getAddressByName(String address);
 }

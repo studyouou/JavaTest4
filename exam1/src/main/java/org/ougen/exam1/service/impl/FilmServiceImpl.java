@@ -23,4 +23,9 @@ public class FilmServiceImpl implements FilmService {
         int offset = page.getPageSize()*(page.getPage()-1);
         return filmMapper.getFile(offset,page.getPageSize(),page.getSort());
     }
+
+    @Override
+    public List<Film> getFilmByPageHelper() {
+        return filmMapper.getFilmByPageHelper();
+    }
 }

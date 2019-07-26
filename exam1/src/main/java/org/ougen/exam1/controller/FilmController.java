@@ -1,5 +1,7 @@
 package org.ougen.exam1.controller;
 
+import com.github.pagehelper.IPage;
+import com.github.pagehelper.PageHelper;
 import org.ougen.exam1.model.Film;
 import org.ougen.exam1.model.Model;
 import org.ougen.exam1.model.Page;
@@ -34,5 +36,15 @@ public class FilmController {
             return ModelUtil.getModel("参数传入有误",-1,"请重新传入参数");
         }
         return ModelUtil.getModel("获取成功",1,filmService.getFilm(nowPage));
+    }
+    @GetMapping("/pageHelper")
+    public Model getFilmByPageHelp(@RequestParam("page")int page,@RequestParam("pageSize") int pageSize){
+        Page ipPage = new Page();
+        ipPage.setPage(page);
+        ipPage.setPageSize(pageSize);
+        PageHelper.startPage(ipPage);
+        List<Film> filmList = filmService.getFilmByPageHelper();
+        logger.info("查询成功{}");
+        return ModelUtil.getModel("success",1,filmList);
     }
 }

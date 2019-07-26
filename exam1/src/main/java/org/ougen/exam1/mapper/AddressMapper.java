@@ -1,6 +1,8 @@
 package org.ougen.exam1.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.ougen.exam1.model.Address;
+import org.ougen.exam1.model.Customer;
 
 import java.util.List;
 
@@ -10,5 +12,6 @@ import java.util.List;
  * Date: 11:33 2019/7/26
  */
 public interface AddressMapper {
-    List<Address> getAddressById(int addressId);
+    public List<Address> getAddressByName(String address);
+
 }

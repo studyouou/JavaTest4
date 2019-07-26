@@ -16,13 +16,12 @@ import java.util.Date;
 public class Customer {
     private int customerId;
     private int storeId;
-    @NotEmpty
+    @NotEmpty(message = "firstName不能为空")
     private String firstName;
-    @NotEmpty
+    @NotEmpty(message = "lastName不能为空")
     private String lastName;
-    @Email
+    @Email(message = "格式错误")
     private String email;
-    @NotNull
     private int addressId;
     private boolean active;
     private Date createDate;

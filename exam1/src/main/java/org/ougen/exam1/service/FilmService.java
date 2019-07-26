@@ -1,6 +1,7 @@
 package org.ougen.exam1.service;
 
 import org.ougen.exam1.model.Film;
+import org.ougen.exam1.model.Model;
 import org.ougen.exam1.model.Page;
 
 import java.util.List;
@@ -12,4 +13,6 @@ import java.util.List;
  */
 public interface FilmService {
     public List<Film> getFilm(Page page);
+
+    List<Film> getFilmByPageHelper();
 }

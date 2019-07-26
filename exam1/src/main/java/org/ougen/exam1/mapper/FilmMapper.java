@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface FilmMapper {
     public List<Film> getFile(@Param("offset")int offset,@Param("limit")int limit,@Param("sort") String sort);
+
+    List<Film> getFilmByPageHelper();
 }

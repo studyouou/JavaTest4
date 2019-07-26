@@ -8,10 +8,34 @@
         where
         first_name=#{firstName}
     </select>
-    <insert id="addCustomer" parameterType="customer">
+    <insert id="addCustomer" parameterType="customer" keyProperty="customerId" useGeneratedKeys="true">
         insert into
         customer(store_id,first_name,last_name,email,address_id)
         values (1,#{customer.firstName},#{customer.lastName},#{customer.email},#{customer.addressId})
     </insert>
-
+    <select id="getCustomerById" resultType="customer">
+        select * from
+        customer
+        where
+        customer_id=#{customerId}
+    </select>
+    <update id="updateCustomer" parameterType="customer">
+        update customer
+        set
+        store_id=#{customer.storeId},
+        first_name=#{customer.firstName},
+        last_name=#{customer.lastName},
+        email=#{customer.email},
+        address_id=#{customer.addressId},
+        active=#{customer.active},
+        last_update=#{customer.lastUpdate}
+        where
+        customer_id=#{customer.customerId}
+    </update>
+    <delete id="deleteCustomer" parameterType="int">
+        delete from
+        customer
+        where
+        customer_id=#{customerId}
+    </delete>
 </mapper>
