@@ -1,0 +1,27 @@
+version: "3"
+services:
+  mysql: 
+    container_name: mysql
+    build: ./exam1/docker/mysql/
+    environment: 
+      - MYSQL_ROOT_PASSWORD=mysql123
+    expose: 
+      - "3306"
+    ports: 
+      - "3306:3306"
+    volumes: 
+      - /data/docker/mysql:/var/lib/mysql
+  javatest4:
+    container_name: javatest4
+    build: ./exam1/docker/java/
+    environment:
+      - USERNAME=root
+      - PASSWORD=mysql123
+      - PORT=3306
+      - HOST=192.168.43.201
+      - SHEMAE=sakila
+    links: 
+      - mysql
+    tty: true
+    ports: 
+      - "18080:18080"

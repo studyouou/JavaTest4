@@ -1,0 +1,7 @@
+# 配置设置
+1. 数据库端口：在javatest4的目录下的docker-compose.yml文件中，配置environment中的PORT环境变量
+2. 配置连接主机host，在javatest4的目录下的docker-compose.yml文件中，配置environment中的PORT环境变量
+3. 配置数据库名（不需要该，数据库会自动导入）,在javatest4的目录下的docker-compose.yml文件中，配置environment中的PORT环境变量SHEMAE环境变量
+4. 挂在数据库，在javatest4的目录下的docker-compose.yml文件中，修改volumes下面的环境变量，用于挂在自己主机上数据存放的位置
+5. 用户名设置，在javatest4的目录下的docker-compose.yml文件中，配置environment中的USERNAME环境变量
+6. 密码设置javatest4的目录下的docker-compose.yml文件中，配置environment中的环境变量PASSWORD环境变量
